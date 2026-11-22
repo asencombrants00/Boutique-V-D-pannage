@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f36b21">
+  <title>V Dépannage — Boutique électroménager</title>
+  <meta name="description" content="V Dépannage : diagnostics, réparations et désormais une boutique de petit électroménager et de pièces détachées.">
+  <style>
+    :root {
+      --orange: #f36b21;
+      --orange-dark: #d95110;
+      --ink: #202124;
+      --muted: #65686d;
+      --paper: #fffaf6;
+      --line: #f0dfd3;
+      --white: #fff;
+      --shadow: 0 14px 36px rgba(50, 30, 15, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: var(--paper);
+      font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; }
+    .topline { height: 5px; background: linear-gradient(90deg, #f9b17e, var(--orange), #f9b17e); }
+    header {
+      position: sticky; top: 0; z-index: 10; background: rgba(255,250,246,.94);
+      backdrop-filter: blur(12px); border-bottom: 1px solid rgba(240,223,211,.8);
+    }
+    .navwrap { max-width: 1120px; margin: auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 850; letter-spacing: -.04em; font-size: 1.35rem; }
+    .brandmark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; color: white; background: linear-gradient(135deg, #ff9b54, var(--orange-dark)); box-shadow: 0 6px 16px #f36b2140; font-weight: 900; }
+    .brand small { display: block; color: var(--muted); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; margin-top: -3px; }
+    nav { display: flex; align-items: center; gap: 8px; }
+    nav a { text-decoration: none; padding: 9px 14px; border-radius: 999px; font-weight: 700; font-size: .94rem; }
+    nav a:hover, nav a:focus-visible { background: #ffeadc; outline: none; }
+    nav .nav-cta { color: white; background: var(--orange); }
+    nav .nav-cta:hover { background: var(--orange-dark); }
+    .wrap { max-width: 1120px; margin: auto; padding: 0 24px; }
+    .hero { padding: 76px 0 58px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 46px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--orange-dark); background: #fff0e5; border: 1px solid #ffd8bf; border-radius: 999px; padding: 7px 12px; font-size: .82rem; font-weight: 800; }
+    h1 { font-size: clamp(2.55rem, 5.5vw, 4.5rem); line-height: 1.04; letter-spacing: -.065em; margin: 20px 0; max-width: 700px; }
+    h1 span { color: var(--orange); }
+    .lead { color: var(--muted); font-size: 1.12rem; max-width: 610px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; text-decoration: none; border: 0; border-radius: 999px; padding: 13px 20px; font: inherit; font-weight: 800; cursor: pointer; }
+    .btn-primary { background: var(--orange); color: white; box-shadow: 0 8px 20px #f36b2138; }
+    .btn-primary:hover { background: var(--orange-dark); }
+    .btn-light { background: white; border: 1px solid var(--line); }
+    .hero-art { min-height: 330px; border-radius: 32px; background: radial-gradient(circle at 75% 20%, #ffd6b6 0, transparent 34%), linear-gradient(145deg, #fff0e5, #ffe1cb); position: relative; display: grid; place-items: center; overflow: hidden; box-shadow: var(--shadow); }
+    .hero-art:before, .hero-art:after { content: ""; position: absolute; border: 1px solid #f36b2130; border-radius: 50%; width: 280px; height: 280px; }
+    .hero-art:after { width: 370px; height: 370px; }
+    .appliance { position: relative; z-index: 1; width: 190px; height: 230px; border-radius: 24px; background: linear-gradient(135deg, #fff, #f4f4f4); border: 5px solid #fff; box-shadow: 0 24px 40px #9d4a1c25; display: flex; align-items: center; justify-content: center; }
+    .appliance:before { content: ""; width: 116px; height: 116px; border-radius: 50%; border: 12px solid #d7dce0; background: radial-gradient(circle at 35% 30%, #d9f0f5, #6f9ca8 65%, #416c78); box-shadow: inset 0 0 0 5px #f8f8f8; }
+    .appliance:after { content: ""; position: absolute; top: 16px; right: 18px; width: 28px; height: 6px; border-radius: 5px; background: var(--orange); }
+    .floating-note { position: absolute; z-index: 2; background: white; border: 1px solid #fff; border-radius: 16px; padding: 12px 15px; box-shadow: var(--shadow); font-weight: 800; }
+    .floating-note small { display: block; color: var(--muted); font-weight: 600; font-size: .75rem; }
+    .note-one { left: 7%; bottom: 12%; } .note-two { right: 6%; top: 12%; }
+    section { scroll-margin-top: 90px; }
+    .section { padding: 64px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .kicker { color: var(--orange-dark); font-size: .78rem; letter-spacing: .13em; text-transform: uppercase; font-weight: 900; }
+    h2 { font-size: clamp(1.8rem, 3.2vw, 2.7rem); line-height: 1.12; letter-spacing: -.045em; margin: 8px 0 0; }
+    .section-head p { color: var(--muted); max-width: 480px; margin: 0; }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .feature { background: white; border: 1px solid var(--line); border-radius: 22px; padding: 24px; }
+    .feature-icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 15px; background: #fff0e5; font-size: 1.4rem; margin-bottom: 18px; }
+    .feature h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .feature p { color: var(--muted); margin: 0; }
+    .shop { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .category { border: 1px solid var(--line); border-radius: 22px; padding: 24px; background: linear-gradient(145deg, #fff, #fff8f2); }
+    .category .emoji { font-size: 2rem; }
+    .category h3 { margin: 12px 0 6px; }
+    .category p { color: var(--muted); margin: 0 0 16px; }
+    .tag { display: inline-block; background: #fff0e5; color: var(--orange-dark); font-weight: 800; font-size: .78rem; border-radius: 999px; padding: 5px 10px; }
+    .shop-note { margin-top: 22px; color: var(--muted); font-size: .93rem; }
+    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 36px; align-items: start; }
+    .contact-card { background: #fff0e5; border: 1px solid #ffd8bf; border-radius: 24px; padding: 26px; }
+    .contact-card p { color: #694a38; }
+    form { background: white; border: 1px solid var(--line); border-radius: 24px; padding: 26px; }
+    label { display: block; font-weight: 750; font-size: .9rem; margin: 14px 0 6px; }
+    input, textarea, select { width: 100%; border: 1px solid #e5d6cc; border-radius: 12px; padding: 12px 13px; font: inherit; background: #fffdfa; color: var(--ink); }
+    input:focus, textarea:focus, select:focus { outline: 2px solid #f36b2140; border-color: var(--orange); }
+    textarea { min-height: 130px; resize: vertical; }
+    footer { border-top: 1px solid var(--line); padding: 24px; color: var(--muted); font-size: .88rem; }
+    .footer-inner { max-width: 1120px; margin: auto; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .navwrap { padding: 12px 16px; flex-wrap: wrap; }
+      nav { width: 100%; justify-content: space-between; gap: 3px; }
+      nav a { padding: 8px 10px; font-size: .88rem; }
+      .wrap { padding: 0 17px; }
+      .hero { padding: 48px 0 38px; }
+      .hero-grid, .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-art { min-height: 285px; }
+      .section { padding: 48px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 12px; }
+      .feature-grid, .category-grid { grid-template-columns: 1fr; }
+      .note-one { left: 4%; } .note-two { right: 4%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="navwrap">
+      <a class="brand" href="#accueil" aria-label="V Dépannage, accueil">
+        <span class="brandmark">V</span>
+        <span>V Dépannage<small>Réparer · équiper · prolonger</small></span>
+      </a>
+      <nav aria-label="Navigation principale">
+        <a href="#accueil">Accueil</a>
+        <a href="#boutique">Boutique</a>
+        <a class="nav-cta" href="#contact">Contact ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">✦ Une nouvelle façon de vous accompagner</span>
+          <h1>V Dépannage,<br>ce n’est pas que<br><span>du dépannage.</span></h1>
+          <p class="lead">Diagnostics, réparations… et désormais une boutique pour retrouver les petits appareils et les pièces détachées qui vous simplifient la vie.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#boutique">Découvrir la boutique ↗</a>
+            <a class="btn btn-light" href="#contact">Nous contacter</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Illustration stylisée d'un appareil électroménager">
+          <div class="appliance"></div>
+          <div class="floating-note note-one">La réparation d’abord<small>Donner une seconde vie aux appareils</small></div>
+          <div class="floating-note note-two">La boutique arrive<small>Pièces & petit électroménager</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="promesse">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Toujours à vos côtés</div><h2 id="promesse">Un appareil en panne ?<br>Une pièce à remplacer ?</h2></div>
+          <p>V Dépannage vous accompagne pour réparer, entretenir et équiper votre maison, avec la même volonté : vous aider à faire durer vos appareils.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature"><div class="feature-icon">🔧</div><h3>Diagnostic & réparation</h3><p>Un service de proximité pour identifier les pannes et remettre vos appareils en service.</p></article>
+          <article class="feature"><div class="feature-icon">🧩</div><h3>Pièces détachées</h3><p>Retrouvez les pièces utiles pour entretenir ou réparer vos appareils électroménagers.</p></article>
+          <article class="feature"><div class="feature-icon">🏠</div><h3>Petit électroménager</h3><p>Une sélection d’appareils et d’accessoires pratiques pour le quotidien.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shop" id="boutique">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">La boutique V Dépannage</div><h2>Les bons produits,<br>pour faire durer vos appareils.</h2></div>
+          <p>La boutique est en préparation. Les catégories ci-dessous présentent les produits que nous souhaitons vous proposer prochainement.</p>
+        </div>
+        <div class="category-grid">
+          <article class="category"><div class="emoji">🧩</div><h3>Pièces détachées</h3><p>Filtres, courroies, joints, poignées et pièces de remplacement.</p><span class="tag">Bientôt disponible</span></article>
+          <article class="category"><div class="emoji">🧹</div><h3>Accessoires & entretien</h3><p>Sacs, filtres, brosses et produits pour prendre soin de vos appareils.</p><span class="tag">Bientôt disponible</span></article>
+          <article class="category"><div class="emoji">☕</div><h3>Petit électroménager</h3><p>Une sélection d’appareils utiles pour la cuisine et la maison.</p><span class="tag">Bientôt disponible</span></article>
+        </div>
+        <p class="shop-note">Les produits, prix et commandes seront ajoutés ici après la mise en place des fournisseurs et du service de livraison.</p>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="kicker">Une question ?</div>
+          <h2>Contactez<br>V Dépannage.</h2>
+          <p class="lead">Pour un diagnostic, une réparation, une question sur une pièce ou la future boutique, écrivez-nous.</p>
+          <div class="contact-card">
+            <strong>V Dépannage</strong>
+            <p>Dépannage et réparation électroménager</p>
+            <p>Pour une demande de diagnostic, indiquez si possible la marque, le modèle de l’appareil et le problème rencontré.</p>
+          </div>
+        </div>
+        <!-- Remplacez VOTRE-EMAIL par l'adresse utilisée pour FormSubmit avant publication. -->
+        <form action="https://formsubmit.co/VOTRE-EMAIL" method="POST">
+          <input type="hidden" name="_subject" value="Nouveau message — Boutique V Dépannage">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_template" value="table">
+          <label for="nom">Votre nom</label>
+          <input id="nom" name="name" autocomplete="name" required placeholder="Nom et prénom">
+          <label for="email">Votre adresse e-mail</label>
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="vous@exemple.fr">
+          <label for="sujet">Votre demande</label>
+          <select id="sujet" name="subject" required>
+            <option value="" selected disabled>Choisir un sujet</option>
+            <option>Diagnostic ou réparation</option>
+            <option>Question sur une pièce détachée</option>
+            <option>Question sur la boutique</option>
+            <option>Autre demande</option>
+          </select>
+          <label for="message">Votre message</label>
+          <textarea id="message" name="message" required placeholder="Écrivez votre message ici…"></textarea>
+          <button class="btn btn-primary" type="submit" style="margin-top:16px">Envoyer le message ↗</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year">2026</span> V Dépannage — Dépannage et réparation électroménager</span>
+      <span>Une panne ? Une pièce ? On vous accompagne.</span>
+    </div>
+  </footer>
+</body>
+</html>
